@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserInformation } from 'src/app/model';
 import { UserServise } from 'src/app/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-detail',
@@ -10,18 +11,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
 
-  @Input() public user: UserInformation | any;
+  public user: UserInformation | any;
 
-  constructor(private userServise: UserServise, private route: ActivatedRoute,) { }
+  constructor(
+      private userServise: UserServise, 
+      private route: ActivatedRoute,
+      private location: Location
+    ) { }
 
   ngOnInit(): void {
-    this.getHero();
+    this.getUserInfo();
   }
 
-  public getHero(): void {
+  public getUserInfo(): void {
     const id: any = this.route.snapshot.paramMap.get('id');
-    this.userServise.getUser(+id)
-      .subscribe((user: UserInformation | undefined) => this.user = user);
+    this.userServise.getUserData(id)
+      .subscribe((user: UserInformation) => this.user = user);
   }
 
+  public goBack(): void {
+    this.location.back();
+  }
 }

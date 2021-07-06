@@ -15,7 +15,7 @@ export class UserCardsComponent implements OnInit {
 
   ngOnInit() {
     this.userServise.getData().subscribe((data: Array<UserInformation>) => {
-      return this.usersData = data.map((user: UserInformation, i: number) => this.usersData[i] = user);
+      return this.usersData = data;
     });
   }
 }

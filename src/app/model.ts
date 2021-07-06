@@ -3,7 +3,7 @@ export interface UserInformation{
     name: string,
     username: string,
     email: string,
-    address: Array<UserAddress>,
+    address: UserAddress,
     phone: string,
     website: string,
     company: UserCompany,
