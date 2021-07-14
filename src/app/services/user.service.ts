@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserInformation } from './model';
+import { UserInformation } from '../models/user-Information.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,11 @@ export class UserServise {
 
   constructor(private http: HttpClient) {}
 
-  public getData(): Observable<UserInformation[]> | any{
-    return this.http.get(this.urlData);
+  public getData(): Observable<UserInformation[]> {
+    return this.http.get<UserInformation[]>(this.urlData);
   }
 
-  public getUserData(id: string): Observable<UserInformation[]> | any{
-    return this.http.get(`${this.urlData}/${id}`);  
-  }
+  public getUserData(id: string): Observable<UserInformation> {
+    return this.http.get<UserInformation>(`${this.urlData}/${id}`)}
 }
 

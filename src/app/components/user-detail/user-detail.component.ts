@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInformation } from 'src/app/model';
-import { UserServise } from 'src/app/user.service';
+import { UserInformation } from 'src/app/models/user-Information.model';
+import { UserServise } from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class UserDetailComponent implements OnInit {
 
-  public user: UserInformation | any;
+  public user: UserInformation;
 
   constructor(
       private userServise: UserServise, 

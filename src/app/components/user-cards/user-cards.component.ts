@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInformation } from 'src/app/model';
-import { UserServise } from '../../user.service'
+import { UserInformation } from 'src/app/models/user-Information.model';
+import { UserServise } from '../../services/user.service'
 
 @Component({
   selector: 'app-user-cards',
@@ -14,8 +14,7 @@ export class UserCardsComponent implements OnInit {
   constructor(private userServise: UserServise) {}
 
   ngOnInit() {
-    this.userServise.getData().subscribe((data: Array<UserInformation>) => {
-      return this.usersData = data;
-    });
+    this.userServise.getData()
+      .subscribe((data: Array<UserInformation>) => this.usersData = data);
   }
 }

@@ -7,7 +7,11 @@
         <p>Phone: <a href="tel:{{user.phone}}">{{user.phone}}</a></p>
         <p>Website: <a href="{{user.website}}">{{user.website}}</a></p>
         <p>Company: {{user.company.name}}</p>
+        <button (click)="goBack()">Go Back</button>
     </div>
-    
-    <button (click)="goBack()">Go Back</button>
+
+    <div *ngIf="user ==undefined">
+        <h1>404 Error! User Not Found!</h1>
+        <button routerLink='/'>Home</button>
+    </div>
 </div>

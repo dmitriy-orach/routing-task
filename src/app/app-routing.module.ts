@@ -5,9 +5,9 @@ import { UserCardsComponent } from './components/user-cards/user-cards.component
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'user', pathMatch: 'full' },
-  { path: 'user', component: UserCardsComponent },
-  { path: 'detail/:id', component: UserDetailComponent },
+  { path: '', redirectTo: 'users', pathMatch: 'full' },
+  { path: 'users', component: UserCardsComponent },
+  { path: 'user-detail/:id', component: UserDetailComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

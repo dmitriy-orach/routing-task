@@ -1,7 +1,7 @@
 <div class="container">
     <div class="users-info">
         <div *ngFor="let user of usersData" class="users-info__item">
-            <a routerLink='/detail/{{user.id}}'>
+            <a routerLink='/user-detail/{{user.id}}'>
                 <h3>{{user.name}}</h3> 
                 <span>{{user.username}}</span>
                 <p>{{user.email}}</p>
